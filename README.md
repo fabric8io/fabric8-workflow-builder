@@ -2,23 +2,16 @@
 
 Generic, plugable [custom builder](https://github.com/openshift/origin/blob/master/docs/builds.md#custom-builds) image for working with [OpenShift builds](https://github.com/openshift/origin/blob/master/docs/builds.md#openshift-builds).
 
-Using a [build config](https://github.com/openshift/origin/blob/master/docs/openshift_model.md#buildconfig), [triggers](https://github.com/openshift/origin/blob/master/pkg/build/api/types.go#L276) are defined that will run this image on an event.  [Jenkins workflow](https://wiki.jenkins-ci.org/display/JENKINS/Workflow+Plugin) or Jenkins job scripts are copied into the Jenkins jobs directory before starting a Jenkins instance, this will then configure all required jobs upon startup.
+Using a [build config](https://github.com/openshift/origin/blob/master/docs/openshift_model.md#buildconfig), [triggers](https://github.com/openshift/origin/blob/master/pkg/build/api/types.go#L276) are defined that will run this image on an event.  [Jenkins workflow](https://wiki.jenkins-ci.org/display/JENKINS/Workflow+Plugin) or build job scripts are copied into the Jenkins jobs directory before starting it, this will then configure all required jobs upon startup.
 
 The workflow or job will be triggered and polled eventually finishing with either success of failure.
 
 ## Environment variables
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-
 env var | description | example
---- |:--- |:---  
+:---|:---|:---  
 SCRIPTS_URI | Git repo that the Jenkins workflow and build job scripts reside.  This can also be the fabric8 wiki. | https://github.com/rawlingsj/fabric8-workflow-scripts.git  
-SCRIPTS_PROJECT | the folder within the SCRIPTS_URI that the project scripts to be used are stored | generic-workflow  
+SCRIPTS_PROJECT | the folder within the $SCRIPTS_URI that the project scripts to be used are stored | generic-workflow  
 TRIGER_WORKFLOW_JOB | the entry point job to trigger, typically this will be a workflow job name | example-workflow  
 
 ## How to use
