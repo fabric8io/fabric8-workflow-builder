@@ -1,5 +1,11 @@
 #!/bin/bash
 
+echo "Custom SCRIPTS_URI: " $SCRIPTS_URI
+echo "Custom SCRIPTS_PROJECT: " $SCRIPTS_PROJECT
+echo "Custom TRIGGER_WORKFLOW_JOB: "$TRIGGER_WORKFLOW_JOB
+echo "Openshift SOURCE_URI: " $SOURCE_URI
+echo "Openshift OPENSHIFT_CUSTOM_BUILD_BASE_IMAGE: " $OPENSHIFT_CUSTOM_BUILD_BASE_IMAGE
+
 cd $JENKINS_HOME
 function gclonecd(){
   # clone repo and cd to git repo but removing the '.git' from the directory name
@@ -25,7 +31,7 @@ until $(curl --output /dev/null --silent --head --fail http://localhost:8080); d
     sleep 5
 done
 
-JOB_URL=$JENKINS_URL/job/$WORKFLOW_PROJECT
+JOB_URL=$JENKINS_URL/job/$TRIGGER_WORKFLOW_JOB
 JOB_STATUS_URL=${JOB_URL}/lastBuild/api/json
 
 GREP_RETURN_CODE=0
