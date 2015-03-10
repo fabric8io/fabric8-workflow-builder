@@ -1,4 +1,4 @@
-FROM  fabric8/fabric8-jenkins:latest
+FROM  rawlingsj/fabric8-jenkins:latest
 
 MAINTAINER fabric8.io <fabric8@googlegroups.com>
 

@@ -2,10 +2,10 @@
 
 cd $JENKINS_HOME
 function gclonecd(){
-  # clone repo and cd to git repo but removing the &apos;.git&apos; from the directory name
+  # clone repo and cd to git repo but removing the '.git' from the directory name
   dirname=$(basename $1)
   len=${#dirname}-4
-  git clone $1 &amp;&amp; cd $(echo &quot;${dirname:0:$len}&quot;)
+  git clone $1 && cd $(echo "${dirname:0:$len}")
 }
 
 gclonecd $SCRIPTS_URI
@@ -42,6 +42,7 @@ do
     GREP_RETURN_CODE=$?
 done
 
+# Check if the build result was SUCCESS, exit script with error if not
 IS_SUCCESS=$(curl $JOB_STATUS_URL | grep result\":\"SUCCESS)
 
 if [[ $IS_SUCCESS -eq 0 ]]; then

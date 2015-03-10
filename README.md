@@ -8,10 +8,18 @@ The workflow or job will be triggered and polled eventually finishing with eithe
 
 ## Environment variables
 
-    env var | description | example  
-    SCRIPTS_URI | Git repo that the Jenkins workflow and build job scripts reside.  This can also be the fabric8 wiki. | https://github.com/rawlingsj/fabric8-workflow-scripts.git  
-    SCRIPTS_PROJECT | the folder within the SCRIPTS_URI that the project scripts to be used are stored | generic-workflow  
-    TRIGER_WORKFLOW_JOB | the entry point job to trigger, typically this will be a workflow job name | example-workflow  
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+
+env var | description | example
+--- |:--- |:---  
+SCRIPTS_URI | Git repo that the Jenkins workflow and build job scripts reside.  This can also be the fabric8 wiki. | https://github.com/rawlingsj/fabric8-workflow-scripts.git  
+SCRIPTS_PROJECT | the folder within the SCRIPTS_URI that the project scripts to be used are stored | generic-workflow  
+TRIGER_WORKFLOW_JOB | the entry point job to trigger, typically this will be a workflow job name | example-workflow  
 
 ## How to use
 
@@ -65,7 +73,7 @@ Set the environment variables above in an OpenShift build config and reference t
                   {  
                      "name":"WORKFLOW_PROJECT",
                      "value":"example-workflow"
-                  },
+                  }
                ]
             }
          },
